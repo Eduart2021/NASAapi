@@ -8,14 +8,8 @@ fetch('http://localhost:3001/api')
    response.push(data)
 
     response.forEach(article =>{
-        const info = '<div>'
-        '<h3>'+ article.title + '</h3>'
-           '<p>'+ article.date +'</p>'
-           '<img src="'
-           + article.url + '" title="NASA" style="width:100%;" height:100%;/>'
-           '<p>'+ article.explanation +'</p>'
-           
-           '</div>'
+        const info = `<div><h3>${article.title}</h3><p>${article.date}</p>
+           <p>${article.explanation}</p></div>`
         feed.insertAdjacentHTML("beforeend", info)
     })
 })
