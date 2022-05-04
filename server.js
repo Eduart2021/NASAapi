@@ -1,3 +1,5 @@
+
+require("dotenv").config()
 const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
@@ -7,13 +9,12 @@ const app = express()
 app.use(cors())
 const urlLink = "https://api.nasa.gov/planetary/apod?api_key="
 const url2 = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key="
-const key = "IJLa7tYGp2iJhWReRE3FYZbtKH8VfxetCcL87mhO"
 const APOD = "https://api.nasa.gov/planetary/apod?api_key="
 
 
 app.get('/api', async (req, res) => {
-
-   await  axios.get(urlLink + key)
+   
+   await  axios.get(urlLink + process.env.key)
     .then(result => {
         const html = result.data
         res.json(html)

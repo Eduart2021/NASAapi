@@ -1,5 +1,26 @@
-*{
+body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
+    background-color:black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../image/nasa.jpg");
+    min-height: 100%;
+    background-size: 100vh;
+    background-repeat: no-repeat;
+  }
+  .textAPI{
+    position: absolute;
+    bottom: 50px;
+    color:white;
+    right: 50%;
+    font-size: 30px;
+  }
+  .menu {
+    display: none;
+  }
