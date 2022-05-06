@@ -1,9 +1,9 @@
-const feed = document.getElementById('list')
+const feed = document.getElementById('climate')
 
 
 
 let response = []
-fetch('http://localhost:3001/api')
+fetch('http://localhost:3001/api/climate')
 .then(response => response.json())
 .then(data => { 
    response.push(data)

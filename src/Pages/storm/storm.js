@@ -2,7 +2,7 @@ const feed = document.getElementById('storm')
 
 
 let response = []
-fetch('http://localhost:3001/api')
+fetch('http://localhost:3001/api/storm')
 .then(response => response.json())
 .then(data => { 
    response.push(data)
