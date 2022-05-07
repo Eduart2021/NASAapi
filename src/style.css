@@ -24,3 +24,30 @@ body, html {
   .menu {
     display: none;
   }
+  #hdImage{
+    padding: 5px 25px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 3px 3px #999;
+  }
+  #hdImage:hover{
+    background-color:rgb(5, 197, 5);
+  }
+  #hdImage:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #777;
+    transform: translateY(4px);
+  }
+
+  .w3-center-footer{
+    color: #fff;
+    text-align: center;
+    padding: 20px ;
+    background-color: rgb(0, 4, 43);
+  }
