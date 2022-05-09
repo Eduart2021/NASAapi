@@ -10,12 +10,13 @@ app.use(cors())
 const urlLink = "https://api.nasa.gov/planetary/apod?api_key="
 const neo = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key="
 const epic = "https://api.nasa.gov/EPIC/api/natural/images?api_key="
-const storm ="https://api.nasa.gov/DONKI/GST?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key="
-const climate = ""
+const storm ="https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=100&api_key="
+const climate = "https://pokeapi.co/api/v2/pokemon/ditto"
 
-app.get('/api', async (req, res) => {
+
+app.get('/api', (req, res) => {
    
-   await  axios.get(urlLink + process.env.key)
+   axios.get(urlLink + process.env.key)
     .then(result => {
         const html = result.data
         res.json(html)
@@ -24,12 +25,13 @@ app.get('/api', async (req, res) => {
     })
     
  })
+ 
 //// testing 
-app.get('/api/:id', async (req, res) => {
+app.get('/api/:id', (req, res) => {
 
     switch (req.params.id) {
         case 'neo':
-              await  axios.get(neo + process.env.key)
+              axios.get(neo + process.env.key)
              .then(result => {
                  const html = result.data
                  res.json(html)
@@ -37,7 +39,7 @@ app.get('/api/:id', async (req, res) => {
                  console.error(err)
              })
         case 'epic':
-             await  axios.get(epic + process.env.key)
+             axios.get(epic + process.env.key)
              .then(result => {
                  const html = result.data
                  res.json(html)
@@ -45,7 +47,7 @@ app.get('/api/:id', async (req, res) => {
                  console.error(err)
              })
         case 'storm':
-              await  axios.get(storm + process.env.key)
+              axios.get(storm + process.env.key)
              .then(result => {
                  const html = result.data
                  res.json(html)
@@ -53,7 +55,7 @@ app.get('/api/:id', async (req, res) => {
                  console.error(err)
              })
         case 'climate':
-            await  axios.get(climate + process.env.key)
+            axios.get(climate ) // + process.env.key
             .then(result => {
                 const html = result.data
                 res.json(html)
@@ -66,7 +68,16 @@ app.get('/api/:id', async (req, res) => {
  })
 
    
+ const baseUrl =  "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
 
+
+ app.get('/pokemons', (req, res) => {
+     axios.get(baseUrl)
+     .then((response)=>{
+         const html = response.data
+         res.json(html)
+     })
+ })
 
 
 const PORT = process.env.PORT || 3001

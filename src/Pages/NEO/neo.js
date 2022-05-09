@@ -12,4 +12,5 @@ fetch('http://localhost:3001/api/neo')
            <p>${article.explanation}</p></div>`
         feed.insertAdjacentHTML("beforeend", info)
     })
+    console.log(response);
 })
